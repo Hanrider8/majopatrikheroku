@@ -10,7 +10,8 @@
     "build": "cd client && yarn build",
     "clean": "concurrently \"rimraf node_modules yarn.lock\" \"cd client && rimraf node_modules build yarn.lock\"",
     "heroku-postbuild": "yarn build",
-    "install": "(cd client && yarn) && yarn",
-    "start": "node index.js"
+    "install": "(cd client && yarn) && (cd .. && yarn)",
+    "start": "concurrently \"cd client && yarn start\" \"cd api && yarn start\"",
+    "start:prod": "node index.js"
   }
 }
