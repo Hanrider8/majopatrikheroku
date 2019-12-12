@@ -1,0 +1,16 @@
+{
+  "name": "herokumajopatrik",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "build": "cd client && yarn build",
+    "clean": "concurrently \"rimraf node_modules yarn.lock\" \"cd client && rimraf node_modules build yarn.lock\"",
+    "heroku-postbuild": "yarn build",
+    "install": "(cd client && yarn) && yarn",
+    "start": "node index.js"
+  }
+}
